@@ -12,7 +12,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
   })
   
     // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
-    var pet_info = {name:"Faker", weight:"60", happiness:"50"};
+    var pet_info = {name:"Faker", weight:"20", happiness:"50"};
   
     function clickedTreatButton() 
     {
@@ -21,6 +21,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
       // Increase pet weight
       pet_info['weight'] += 2;
+
+      //show notification
+      showNotification("You gave your pet a treat!");
       checkAndUpdatePetInfoInHtml();
     }
     
@@ -31,6 +34,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
       // Decrease pet weight
       pet_info['weight'] -= 5;
+
+      //show notification
+      showNotification("You played with your pet!");
       checkAndUpdatePetInfoInHtml();
     }
     
@@ -41,6 +47,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
       // Decrease pet weight
       pet_info['weight'] -= 10;
+
+      //show notification
+      showNotification("You exercised with your pet!");
       checkAndUpdatePetInfoInHtml();
     }
   
@@ -70,6 +79,12 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
       //weigth stays the same
       checkAndUpdatePetInfoInHtml();
+    }
+
+    function showNotification(message)
+    {
+      $('.notification').text(message);
+      $('.notification').fadeIn(500).delay(1000).fadeOut(500);
     }
     
     // Updates your HTML with the current values in your pet_info object
