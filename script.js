@@ -8,7 +8,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     $('.play-button').click(clickedPlayButton);
     $('.exercise-button').click(clickedExerciseButton);
     $(`.sleep-button`).click(clickedSleepButton);
-    
+    $(`.dance-button`).click(clickedDanceButton);
   })
   
     // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
@@ -81,6 +81,29 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
       //show notification
       showNotification("Your pet took a nap!");
+      checkAndUpdatePetInfoInHtml();
+    }
+
+    function clickedDanceButton()
+    {
+      //increases pet happiness
+      pet_info['happiness'] += 20;
+      //weight decreases
+      pet_info['weight'] -= 15;
+
+      //show video
+      $(`.dance-video-container`).fadeIn(500);
+
+      const video = $('.dance-video').get(0);
+       video.addEventListener('canplay', function() {
+        video.currentTime = 0;
+        video.play().catch(err => {
+            console.log("Video play failed:", err);
+        });
+    }, {once: true}); // Run only once
+
+      //show notification
+      showNotification("Your pet is dancing!");
       checkAndUpdatePetInfoInHtml();
     }
 
