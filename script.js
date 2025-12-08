@@ -83,8 +83,8 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
     function showNotification(message)
     {
-      $('.notification').text(message);
-      $('.notification').fadeIn(500).delay(1000).fadeOut(500);
+      $('.pet-notification').text(message);
+      $('.pet-notification').fadeIn(500).delay(1000).fadeOut(500);
     }
     
     // Updates your HTML with the current values in your pet_info object
