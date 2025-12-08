@@ -7,40 +7,69 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     $('.treat-button').click(clickedTreatButton);
     $('.play-button').click(clickedPlayButton);
     $('.exercise-button').click(clickedExerciseButton);
-  
-
-  
+    $(`.sleep-button`).click(clickedSleepButton);
     
   })
   
     // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
-    var pet_info = {name:"My Pet Name", weight:"??", happiness:"??"};
+    var pet_info = {name:"Faker", weight:"60", happiness:"50"};
   
-    function clickedTreatButton() {
+    function clickedTreatButton() 
+    {
       // Increase pet happiness
+      pet_info['happiness'] += 5;
+
       // Increase pet weight
+      pet_info['weight'] += 2;
       checkAndUpdatePetInfoInHtml();
     }
     
-    function clickedPlayButton() {
+    function clickedPlayButton() 
+    {
       // Increase pet happiness
+      pet_info['happiness'] += 10;
+
       // Decrease pet weight
+      pet_info['weight'] -= 5;
       checkAndUpdatePetInfoInHtml();
     }
     
-    function clickedExerciseButton() {
+    function clickedExerciseButton() 
+    {
       // Decrease pet happiness
+      pet_info['happiness'] -= 5;
+
       // Decrease pet weight
+      pet_info['weight'] -= 10;
       checkAndUpdatePetInfoInHtml();
     }
   
-    function checkAndUpdatePetInfoInHtml() {
+    function checkAndUpdatePetInfoInHtml() 
+    {
       checkWeightAndHappinessBeforeUpdating();  
       updatePetInfoInHtml();
     }
     
-    function checkWeightAndHappinessBeforeUpdating() {
+    function checkWeightAndHappinessBeforeUpdating() 
+    {
       // Add conditional so if weight is lower than zero.
+      if (pet_info['weight'] < 0)
+      {
+        pet_info['weight'] = 0;
+      }
+      if (pet_info['happiness'] < 0)
+      {
+        pet_info['happiness'] = 0;
+      }
+    }
+
+    function clickedSleepButton()
+    {
+      //increases pet happiness
+      pet_info['happiness'] += 15;
+
+      //weigth stays the same
+      checkAndUpdatePetInfoInHtml();
     }
     
     // Updates your HTML with the current values in your pet_info object
