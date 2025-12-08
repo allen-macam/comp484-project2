@@ -78,6 +78,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info['happiness'] += 15;
 
       //weigth stays the same
+
+      //show notification
+      showNotification("Your pet took a nap!");
       checkAndUpdatePetInfoInHtml();
     }
 
